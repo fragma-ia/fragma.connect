@@ -1,0 +1,418 @@
+/* ============================================================
+   FRAGMA Connect — Custom Theme
+   Design system baseado no FRAGMA VidFlow
+   Fontes: Plus Jakarta Sans + DM Mono
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* === RESET E BASE === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:         #08090E;
+  --surface:    #0E0F18;
+  --surface-hi: #131421;
+  --border:     #1C1D2E;
+  --border-hi:  #2E2050;
+  --primary:    #7C3AFF;
+  --primary-hi: #9B5FFF;
+  --primary-lo: rgba(124,58,255,0.1);
+  --primary-bo: rgba(124,58,255,0.3);
+  --accent:     #BF7EFF;
+  --text:       #E8E8F0;
+  --text-mid:   #8890A8;
+  --text-low:   #424660;
+  --success:    #34D399;
+  --error:      #F87171;
+  --warn:       #FBBF24;
+  --info:       #60A5FA;
+  --scrollbar:  #2a1f4a;
+  --font-main:  'Plus Jakarta Sans', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* === BODY E FUNDO === */
+body, html {
+  margin: 0;
+  padding: 0;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--font-main) !important;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* === LINKS === */
+a {
+  color: var(--accent) !important;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a:hover {
+  color: var(--primary-hi) !important;
+  text-decoration: underline;
+}
+
+/* === TIPOGRAFIA === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main) !important;
+  font-weight: 700;
+  color: var(--text) !important;
+  letter-spacing: -0.01em;
+}
+
+code, pre, .mono, [class*="code"] {
+  font-family: var(--font-mono) !important;
+  font-size: 0.85em;
+}
+
+/* === CONTAINERS E PAINÉIS === */
+#mainWindow,
+#controlWindow,
+.mainWindow,
+.container,
+[id*="main"],
+[id*="control"],
+[class*="panel"],
+[class*="wrapper"] {
+  background: var(--bg) !important;
+}
+
+/* Painéis secundários */
+.popup,
+.modal,
+.dialog,
+[class*="overlay"],
+[class*="sidebar"],
+[class*="toolbar"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-hi) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5) !important;
+}
+
+/* === BOTÕES === */
+button,
+input[type="button"],
+input[type="submit"],
+.btn {
+  font-family: var(--font-main) !important;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border) !important;
+  background: var(--surface-hi) !important;
+  color: var(--text) !important;
+  padding: 8px 16px !important;
+  cursor: pointer;
+  transition: all 0.15s ease !important;
+  outline: none !important;
+}
+
+button:hover,
+input[type="button"]:hover,
+.btn:hover {
+  background: var(--surface-hi) !important;
+  border-color: var(--border-hi) !important;
+  transform: translateY(-1px);
+}
+
+/* Botão primário */
+button.primary,
+button[class*="start"],
+button[class*="connect"],
+button[id*="start"],
+button[id*="connect"],
+#sendButton,
+#shareButton,
+.mainButton {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(124,58,255,0.3) !important;
+}
+
+button.primary:hover,
+button[class*="start"]:hover,
+button[class*="connect"]:hover,
+#sendButton:hover,
+#shareButton:hover,
+.mainButton:hover {
+  background: var(--primary-hi) !important;
+  border-color: var(--primary-hi) !important;
+  box-shadow: 0 0 30px rgba(124,58,255,0.5) !important;
+  transform: translateY(-1px);
+}
+
+/* Botão de perigo/stop */
+button[class*="stop"],
+button[class*="hang"],
+button[class*="leave"],
+button[id*="stop"],
+button[id*="hang"] {
+  background: rgba(248,113,113,0.12) !important;
+  border-color: rgba(248,113,113,0.4) !important;
+  color: var(--error) !important;
+}
+
+button[class*="stop"]:hover,
+button[class*="hang"]:hover {
+  background: rgba(248,113,113,0.25) !important;
+}
+
+/* === INPUTS E SELECTS === */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  font-family: var(--font-main) !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  outline: none !important;
+  transition: border-color 0.15s !important;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px var(--primary-lo) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-low) !important;
+}
+
+select option {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+/* === CHECKBOXES E TOGGLES === */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--primary) !important;
+}
+
+/* === SLIDERS === */
+input[type="range"] {
+  accent-color: var(--primary) !important;
+  background: var(--border) !important;
+}
+
+/* === TABELAS === */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: var(--surface-hi) !important;
+  color: var(--text-mid) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 12px !important;
+}
+
+td {
+  border-bottom: 1px solid var(--border) !important;
+  padding: 8px 12px !important;
+  color: var(--text) !important;
+}
+
+tr:hover td {
+  background: var(--surface-hi) !important;
+}
+
+/* === VÍDEOS E STREAMS === */
+video {
+  border-radius: var(--radius-md) !important;
+  background: #000 !important;
+}
+
+/* Container de vídeo */
+[class*="video"],
+[id*="video"],
+[class*="stream"],
+[id*="stream"] {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  background: #000 !important;
+}
+
+/* === CHAT === */
+[id*="chat"],
+[class*="chat"] {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* Mensagem de chat */
+[class*="chatMessage"],
+[class*="chat-message"] {
+  font-family: var(--font-main) !important;
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 8px 12px !important;
+}
+
+/* === LABELS E TEXTOS SECUNDÁRIOS === */
+label,
+[class*="label"],
+small {
+  font-family: var(--font-main) !important;
+  color: var(--text-mid) !important;
+  font-size: 12px !important;
+}
+
+/* === STATS E MÉTRICAS === */
+[class*="stats"],
+[class*="metric"],
+[id*="stats"] {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  color: var(--text-mid) !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 10px !important;
+}
+
+/* === BADGES E TAGS === */
+[class*="badge"],
+[class*="tag"],
+[class*="status"] {
+  font-family: var(--font-mono) !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+}
+
+/* === NOTIFICAÇÕES / TOASTS === */
+[class*="toast"],
+[class*="notification"],
+[class*="alert"] {
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+  padding: 10px 16px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 8px var(--primary); }
+  50%       { box-shadow: 0 0 20px var(--primary-hi); }
+}
+
+/* === BARRA SUPERIOR (HEADER) === */
+header,
+#header,
+[class*="header"],
+[class*="topbar"],
+[class*="navbar"] {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 12px 20px !important;
+}
+
+/* === RODAPÉ === */
+footer,
+#footer,
+[class*="footer"] {
+  background: var(--surface) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--text-mid) !important;
+  font-size: 11px !important;
+  padding: 12px 20px !important;
+}
+
+/* === LOADING / SPINNER === */
+[class*="loading"],
+[class*="spinner"] {
+  border-color: var(--border) !important;
+  border-top-color: var(--primary) !important;
+}
+
+/* === GLOW NO INDICADOR ATIVO === */
+[class*="active"],
+[class*="live"],
+[class*="recording"] {
+  color: var(--success) !important;
+}
+
+.recording-indicator,
+[class*="rec-dot"],
+[id*="recording"] {
+  background: var(--error) !important;
+  border-radius: 50% !important;
+  animation: pulse 1.5s infinite !important;
+}
+
+/* === RESPONSIVO MOBILE === */
+@media (max-width: 768px) {
+  body { font-size: 13px; }
+  button { padding: 7px 12px !important; font-size: 12px !important; }
+}
+
+/* === FRAGMA CONNECT BRANDING === */
+/* Linha de destaque roxa no topo da página */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  z-index: 9999;
+  pointer-events: none;
+}
